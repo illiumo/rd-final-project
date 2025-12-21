@@ -7,4 +7,4 @@ spec:
   interval: 1h
   url: oci://registry-1.docker.io/bitnamicharts/ghost
   ref:
-    tag: 26.1.2
+    tag: 21.1.20
