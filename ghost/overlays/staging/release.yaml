@@ -9,7 +9,7 @@ spec:
     spec:
       chart: ghost
       sourceRef:
-        kind: OCIRepository
+        kind: HelmRepository
         name: ghost-repo
         namespace: flux-system
       version: "21.1.20"
