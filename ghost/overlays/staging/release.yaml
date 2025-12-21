@@ -31,10 +31,6 @@ spec:
       user: "placeholder"
       existingSecret: db-secret
       existingSecretPasswordKey: password
-    image:
-      registry: docker.io
-      repository: bitnami/ghost
-      tag: "6"
     service:
       type: ClusterIP
       port: 80
