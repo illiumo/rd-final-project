@@ -6,6 +6,6 @@ spec:
   bootstrap:
     initdb:
       database: ghost
-      username: ghost
+      owner: ghost
       secret:
         name: db-secret
