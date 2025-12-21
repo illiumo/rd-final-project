@@ -9,10 +9,9 @@ spec:
     spec:
       chart: ghost
       sourceRef:
-        kind: HelmRepository
-        name: bitnami
+        kind: OCIRepository
+        name: ghost-chart
         namespace: flux-system
-      version: "*"
   values:
     replicaCount: 1
     image:
