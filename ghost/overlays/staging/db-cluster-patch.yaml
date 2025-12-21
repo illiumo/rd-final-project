@@ -1,0 +1,14 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: ghost-cluster
+spec:
+  bootstrap:
+    initdb:
+      database: ghost
+      username: ghost
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: db-secret
+            key: DB_PASSWORD
