@@ -32,7 +32,7 @@ spec:
       tag: 5.87.2-debian-12-r0
     externalDatabase:
       existingSecret: db-secret
-      existingSecretPasswordKey: passwor
+      existingSecretPasswordKey: password
     service:
       type: ClusterIP
       port: 80
@@ -57,3 +57,7 @@ spec:
       name: ghost-db-config
       valuesKey: DB_PORT
       targetPath: externalDatabase.port
+    - kind: Secret
+      name: db-secret
+      valuesKey: ghostPassword
+      targetPath: ghostPassword
