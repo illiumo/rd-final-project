@@ -5,6 +5,8 @@ metadata:
   namespace: staging
 spec:
   interval: 5m
+  mysql:
+    enabled: false
   chart:
     spec:
       chart: ghost
