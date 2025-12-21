@@ -28,7 +28,7 @@ spec:
       enabled: false
     image:
       registry: docker.io
-      repository: bitnami/ghost
+      repository: bitnamilegacy/ghost
       tag: 5.87.2-debian-12-r0
     externalDatabase:
       existingSecret: db-secret
