@@ -19,7 +19,7 @@ spec:
         kind: HelmRepository
         name: ghost-repo
         namespace: flux-system
-      version: "22.1.0"
+      version: "21.1.20"
   values:
     replicaCount: 1
     mariadb:
@@ -33,6 +33,7 @@ spec:
     externalDatabase:
       existingSecret: db-secret
       existingSecretPasswordKey: password
+    ghostPassword: "1231!@#$A"
     service:
       type: ClusterIP
       port: 80
@@ -57,7 +58,3 @@ spec:
       name: ghost-db-config
       valuesKey: DB_PORT
       targetPath: externalDatabase.port
-    - kind: Secret
-      name: db-secret
-      valuesKey: ghostPassword
-      targetPath: ghostPassword
