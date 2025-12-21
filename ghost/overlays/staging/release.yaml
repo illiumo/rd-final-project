@@ -31,10 +31,8 @@ spec:
       repository: bitnami/ghost
       tag: 5.87.2-debian-12-r0
     externalDatabase:
-      host: "placeholder"
-      user: "placeholder"
       existingSecret: db-secret
-      existingSecretPasswordKey: password
+      existingSecretPasswordKey: passwor
     service:
       type: ClusterIP
       port: 80
