@@ -5,8 +5,6 @@ metadata:
   namespace: staging
 spec:
   interval: 5m
-  mysql:
-    enabled: false
   chart:
     spec:
       chart: ghost
@@ -17,6 +15,8 @@ spec:
       version: "21.1.20"
   values:
     replicaCount: 1
+    mysql:
+      enabled: false
     image:
       registry: docker.io
       repository: bitnami/ghost
