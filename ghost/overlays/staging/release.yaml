@@ -26,6 +26,10 @@ spec:
       enabled: false
     mysql:
       enabled: false
+    image:
+      registry: docker.io
+      repository: bitnami/ghost
+      tag: 5.87.2-debian-12-r0
     externalDatabase:
       host: "placeholder"
       user: "placeholder"
