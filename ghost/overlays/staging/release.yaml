@@ -12,6 +12,7 @@ spec:
         kind: OCIRepository
         name: ghost-repo
         namespace: flux-system
+      version: "26.1.2"
   values:
     replicaCount: 1
     image:
