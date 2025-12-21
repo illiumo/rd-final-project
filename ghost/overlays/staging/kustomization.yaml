@@ -5,6 +5,8 @@ resources:
   - ../../base
   - namespace.yaml
   - release.yaml
+generatorOptions:
+  disableNameSuffixHash: true
 patches:
   - path: db-cluster-patch.yaml
 configMapGenerator:
