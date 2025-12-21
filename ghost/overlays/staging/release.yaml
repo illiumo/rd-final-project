@@ -24,8 +24,8 @@ spec:
       password:
         valueFrom:
           secretKeyRef:
-            name: ghost-db-secret
-            key: password
+            name: db-secret
+            key: DB_PASSWORD
       database: $(DB_NAME)
       port: $(DB_PORT)
     ingress:

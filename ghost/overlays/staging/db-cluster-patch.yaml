@@ -7,8 +7,5 @@ spec:
     initdb:
       database: ghost
       username: ghost
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: db-secret
-            key: DB_PASSWORD
+      secret:
+        name: db-secret
