@@ -10,7 +10,7 @@ spec:
       chart: ghost
       sourceRef:
         kind: OCIRepository
-        name: ghost-chart
+        name: ghost-repo
         namespace: flux-system
   values:
     replicaCount: 1
