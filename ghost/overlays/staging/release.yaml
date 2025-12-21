@@ -19,17 +19,13 @@ spec:
         kind: HelmRepository
         name: ghost-repo
         namespace: flux-system
-      version: "latest"
+      version: "22.1.0"
   values:
     replicaCount: 1
     mariadb:
       enabled: false
     mysql:
       enabled: false
-    image:
-      registry: docker.io
-      repository: bitnami/ghost
-      tag: 6.0.5-debian-12-r0
     externalDatabase:
       host: "placeholder"
       user: "placeholder"
@@ -59,7 +55,3 @@ spec:
       name: ghost-db-config
       valuesKey: DB_PORT
       targetPath: externalDatabase.port
-    - kind: Secret
-      name: db-secret
-      valuesKey: password # The key inside your secret
-      targetPath: ghostPassword
