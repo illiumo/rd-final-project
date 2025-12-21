@@ -3,6 +3,7 @@ kind: HelmRelease
 metadata:
   name: ghost
 spec:
+  interval: 5m
   chart:
     spec:
       chart: ghost
