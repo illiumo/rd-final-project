@@ -5,6 +5,13 @@ metadata:
   namespace: staging
 spec:
   interval: 5m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+      remediateLastFailure: true
   chart:
     spec:
       chart: ghost
@@ -19,13 +26,15 @@ spec:
       enabled: false
     mysql:
       enabled: false
+    externalDatabase:
+      host: "placeholder"
+      user: "placeholder"
+      existingSecret: db-secret
+      existingSecretPasswordKey: DB_PASSWORD
     image:
       registry: docker.io
       repository: bitnami/ghost
       tag: 6-alpine
-    externalDatabase:
-      existingSecret: db-secret
-      existingSecretPasswordKey: DB_PASSWORD
     ingress:
       enabled: true
       hostname: app.staging.local
