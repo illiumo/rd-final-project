@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ghost
+  namespace: staging
 spec:
   interval: 5m
   chart:
@@ -19,15 +20,25 @@ spec:
       repository: bitnami/ghost
       tag: 6-alpine
     externalDatabase:
-      host: $(DB_HOST)
-      user: $(DB_USER)
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: db-secret
-            key: DB_PASSWORD
-      database: $(DB_NAME)
-      port: $(DB_PORT)
+      existingSecret: db-secret
+      existingSecretPasswordKey: DB_PASSWORD
     ingress:
       enabled: true
       hostname: app.staging.local
+  valuesFrom:
+    - kind: ConfigMap
+      name: ghost-db-config
+      valuesKey: DB_HOST
+      targetPath: externalDatabase.host
+    - kind: ConfigMap
+      name: ghost-db-config
+      valuesKey: DB_USER
+      targetPath: externalDatabase.user
+    - kind: ConfigMap
+      name: ghost-db-config
+      valuesKey: DB_NAME
+      targetPath: externalDatabase.database
+    - kind: ConfigMap
+      name: ghost-db-config
+      valuesKey: DB_PORT
+      targetPath: externalDatabase.port
