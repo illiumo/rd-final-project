@@ -22,9 +22,9 @@ spec:
       repository: bitnamilegacy/ghost
       tag: 5.87.2-debian-12-r0
     externalDatabase:
-      host: placeholder
-      user: placeholder
-      database: placeholder
+      host: ghost-mysql.staging.svc.cluster.local
+      user: ghost
+      database: ghost
       port: 3306
       existingSecret: ghost-mysql-secret
       existingSecretPasswordKey: mysql-password
@@ -35,20 +35,3 @@ spec:
     ingress:
       enabled: true
       hostname: app.staging.local
-  valuesFrom:
-    - kind: ConfigMap
-      name: ghost-db-config
-      valuesKey: DB_HOST
-      targetPath: externalDatabase.host
-    - kind: ConfigMap
-      name: ghost-db-config
-      valuesKey: DB_USER
-      targetPath: externalDatabase.user
-    - kind: ConfigMap
-      name: ghost-db-config
-      valuesKey: DB_NAME
-      targetPath: externalDatabase.database
-    - kind: ConfigMap
-      name: ghost-db-config
-      valuesKey: DB_PORT
-      targetPath: externalDatabase.port
