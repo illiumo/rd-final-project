@@ -5,14 +5,13 @@ resources:
   - ../../base
   - namespace.yaml
   - release.yaml
+  - db-cluster.yaml
 generatorOptions:
   disableNameSuffixHash: true
-patches:
-  - path: db-cluster-patch.yaml
 configMapGenerator:
   - name: ghost-db-config
     literals:
-      - DB_HOST=ghost-cluster.staging.svc.cluster.local
+      - DB_HOST=ghost-mysql.staging.svc.cluster.local
       - DB_USER=ghost
       - DB_NAME=ghost
-      - DB_PORT=5432
+      - DB_PORT=3306

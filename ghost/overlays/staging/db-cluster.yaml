@@ -1,0 +1,15 @@
+apiVersion: mysql.oracle.com/v2
+kind: InnoDBCluster
+metadata:
+  name: ghost-mysql
+spec:
+  instances: 1
+  router:
+    instances: 1
+  secretName: ghost-mysql-secret
+  tlsUseSelfSigned: true
+  datadirVolumeClaimTemplate:
+    accessModes: ["ReadWriteOnce"]
+    resources:
+      requests:
+        storage: 5Gi

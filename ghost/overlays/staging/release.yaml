@@ -5,21 +5,14 @@ metadata:
   namespace: staging
 spec:
   interval: 5m
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    remediation:
-      retries: 3
-      remediateLastFailure: true
   chart:
     spec:
       chart: ghost
+      version: "21.1.20"
       sourceRef:
         kind: HelmRepository
         name: ghost-repo
         namespace: flux-system
-      version: "21.1.20"
   values:
     replicaCount: 1
     mariadb:
@@ -27,21 +20,19 @@ spec:
     mysql:
       enabled: false
     image:
-      registry: docker.io
       repository: bitnamilegacy/ghost
       tag: 5.87.2-debian-12-r0
     externalDatabase:
-      host: "placeholder"
-      user: "placeholder"
-      database: "placeholder"
-      port: 5432
-      existingSecret: db-secret
-      existingSecretPasswordKey: "password"
+      host: placeholder
+      user: placeholder
+      database: placeholder
+      port: 3306
+      existingSecret: ghost-mysql-secret
+      existingSecretPasswordKey: mysql-password
     ghostPassword: "1231!@#$A"
     service:
       type: ClusterIP
       port: 80
-      targetPort: 2368
     ingress:
       enabled: true
       hostname: app.staging.local
