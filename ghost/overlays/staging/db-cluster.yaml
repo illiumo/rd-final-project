@@ -2,11 +2,15 @@ apiVersion: mysql.oracle.com/v2
 kind: InnoDBCluster
 metadata:
   name: ghost-mysql
+  namespace: staging
 spec:
   instances: 1
   router:
     instances: 1
   secretName: ghost-mysql-secret
+  initDB:
+    name: ghost
+    user: ghost
   tlsUseSelfSigned: true
   datadirVolumeClaimTemplate:
     accessModes: ["ReadWriteOnce"]
